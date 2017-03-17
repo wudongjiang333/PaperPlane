@@ -99,7 +99,7 @@ public class BookmarksFragment extends Fragment
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refreshLayout);
-        refreshLayout.setColorSchemeResources(R.color.colorPrimary);
+        refreshLayout.setColorSchemeResources(R.color.colorPrimary);// 可以改变加载图标的颜色
 
     }
 
