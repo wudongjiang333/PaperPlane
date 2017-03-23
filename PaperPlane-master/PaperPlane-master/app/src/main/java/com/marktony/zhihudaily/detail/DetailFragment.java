@@ -81,7 +81,7 @@ public class DetailFragment extends Fragment
         view.findViewById(R.id.toolbar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                scrollView.smoothScrollTo(0, 0);
+                scrollView.smoothScrollTo(0, 0);// scrollTo 直接定位到对应的位置 而smoothScrollTo是平滑滚动过去的,并且 scrollTo在惯性滚动时不可以打断 而smoothScrollTo在惯性滚动时则可以打断
             }
         });
 
@@ -115,7 +115,7 @@ public class DetailFragment extends Fragment
             if (presenter.queryIfIsBookmarked()) {
                 ((TextView) view.findViewById(R.id.textView)).setText(R.string.action_delete_from_bookmarks);
                 ((ImageView) view.findViewById(R.id.imageView))
-                        .setColorFilter(getContext().getResources().getColor(R.color.colorPrimary));
+                        .setColorFilter(getContext().getResources().getColor(R.color.colorPrimary));//滤镜效果
             }
 
             // add to bookmarks or delete from bookmarks
@@ -208,7 +208,7 @@ public class DetailFragment extends Fragment
 
     @Override
     public void showResult(String result) {
-        webView.loadDataWithBaseURL("x-data://base",result,"text/html","utf-8",null);
+        webView.loadDataWithBaseURL("x-data://base",result,"text/html","utf-8",null);//loadDataWithBaseURL()比loadData()多两个参数，参1可以指定HTML代码片段中相关资源的相对根路径，参5也可以指定历史Url
     }
 
     @Override
@@ -300,7 +300,7 @@ public class DetailFragment extends Fragment
 
         webView.setWebViewClient(new WebViewClient() {
             @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {// 页面上的链接跳转就需要限制在WebView中，而不是使用默认的浏览器应用打开
                 presenter.openUrl(view, url);
                 return true;
             }
@@ -312,8 +312,8 @@ public class DetailFragment extends Fragment
     // to change the title's font size of toolbar layout
     private void setCollapsingToolbarLayoutTitle(String title) {
         toolbarLayout.setTitle(title);
-        toolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBar);
-        toolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppBar);
+        toolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBar);// 从指定的TextAppearance资源设置扩展标题的文本颜色和大小。
+        toolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppBar);// 从指定的TextAppearance资源中设置折叠标题的文本颜色和大小
         toolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBarPlus1);
         toolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppBarPlus1);
     }

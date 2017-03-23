@@ -86,7 +86,7 @@ public class BookmarksFragment extends Fragment
     }
 
     @Override
-    public void setPresenter(BookmarksContract.Presenter presenter) {
+    public void setPresenter(BookmarksContract.Presenter presenter) {// 在Presenter的构造方法里调用
         if (presenter != null) {
             this.presenter = presenter;
         }
