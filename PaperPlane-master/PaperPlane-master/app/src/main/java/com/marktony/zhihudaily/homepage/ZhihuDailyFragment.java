@@ -95,7 +95,7 @@ public class ZhihuDailyFragment extends Fragment
             boolean isSlidingToLast = false;
 
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {// 滚动状态变化时回调
 
                 LinearLayoutManager manager = (LinearLayoutManager) recyclerView.getLayoutManager();
                 // 当不滚动时
@@ -116,7 +116,7 @@ public class ZhihuDailyFragment extends Fragment
             }
 
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {// 滚动时回调,http://www.jianshu.com/p/ce347cf991db
                 super.onScrolled(recyclerView, dx, dy);
                 isSlidingToLast = dy > 0;
 
@@ -159,7 +159,7 @@ public class ZhihuDailyFragment extends Fragment
                     // 2013.5.20是知乎日报api首次上线
                     minDate.set(2013, 5, 20);
                     dialog.setMinDate(minDate);
-                    dialog.vibrate(false);
+                    dialog.vibrate(false);// 设置触摸字段时设备是否振动
 
                     dialog.show(getActivity().getFragmentManager(), "DatePickerDialog");
                 } else if (tabLayout.getSelectedTabPosition() == 2) {
@@ -184,7 +184,7 @@ public class ZhihuDailyFragment extends Fragment
     public void initViews(View view) {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(true);//setHasFixedSize 的作用就是确保尺寸是通过用户输入,从而确保RecyclerView的尺寸是一个常数。
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         refresh = (SwipeRefreshLayout) view.findViewById(R.id.refreshLayout);
@@ -192,7 +192,7 @@ public class ZhihuDailyFragment extends Fragment
         refresh.setColorSchemeResources(R.color.colorPrimary);
 
         fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
-        fab.setRippleColor(getResources().getColor(R.color.colorPrimaryDark));
+        fab.setRippleColor(getResources().getColor(R.color.colorPrimaryDark));// 设置涟漪颜色
 
         tabLayout = (TabLayout) getActivity().findViewById(R.id.tab_layout);
 

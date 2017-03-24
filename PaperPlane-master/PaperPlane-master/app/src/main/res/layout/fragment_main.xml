@@ -56,5 +56,5 @@
         app:backgroundTint="@color/colorPrimary"
         app:elevation="4dp"
         app:borderWidth="0dp"/>
-
+    <!-- app:backgroundTint=:设置背景颜色 -->
 </android.support.design.widget.CoordinatorLayout>

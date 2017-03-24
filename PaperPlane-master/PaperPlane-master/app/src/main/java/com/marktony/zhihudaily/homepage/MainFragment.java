@@ -141,7 +141,7 @@ public class MainFragment extends Fragment {
                 doubanMomentFragment);
 
         viewPager.setAdapter(adapter);
-        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager);// 关联
 
     }
 
